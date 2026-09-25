@@ -51,13 +51,14 @@ def extract_final_compu_data(
 
     return df
 
-date = input(
-    "Enter date (YYYY-MM-DD): "
-).strip()
+# date = input(
+#     "Enter date (YYYY-MM-DD): "
+# ).strip()
 
+date="2026-09-02"
 
 # Extract BEX data
-
+print("Extracting data.....")
 df = extract_final_compu_data(date=date,)
 
 values_to_filter = ["External Constraint DE_DK1_VH_export"]
@@ -70,9 +71,9 @@ output_folder = f"data/{date}"
 os.makedirs(output_folder, exist_ok=True)
 
 output_csv_file = os.path.join(output_folder,f"Final_compu_{date}.csv")
-output_parque_file = os.path.join(output_folder,f"final_compu_{date}.parquet")
+# output_parque_file = os.path.join(output_folder,f"final_compu_{date}.parquet")
 
-filtered_df.to_parquet(output_parque_file,index=False)
+# filtered_df.to_parquet(output_parque_file,index=False)
 filtered_df.to_csv(output_csv_file,index=False)
 
 print("Data saved as csv and parquet.")
