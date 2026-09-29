@@ -62,20 +62,20 @@ print("Extracting data.....")
 df = extract_final_compu_data(date=date,)
 
 values_to_filter = ["External Constraint DE_DK1_VH_export"]
+# values_to_filter = ["220kV Divaca - Pehlin"]
+
 df["dateTimeUtc"] = pd.to_datetime(df["dateTimeUtc"])
 filtered_df = df[df["cneName"].isin(values_to_filter)]
 
 print(filtered_df)
 
-output_folder = f"data/{date}"
-os.makedirs(output_folder, exist_ok=True)
+# output_folder = f"data_latest"
+# os.makedirs(output_folder, exist_ok=True)
 
-output_csv_file = os.path.join(output_folder,f"Final_compu_{date}.csv")
-# output_parque_file = os.path.join(output_folder,f"final_compu_{date}.parquet")
+# output_csv_file = os.path.join(output_folder,f"Final_compu_{date}.csv")
+# # output_parque_file = os.path.join(output_folder,f"final_compu_{date}.parquet")
 
-# filtered_df.to_parquet(output_parque_file,index=False)
-filtered_df.to_csv(output_csv_file,index=False)
+# # filtered_df.to_parquet(output_parque_file,index=False)
+# filtered_df.to_csv(output_csv_file,index=False)
 
-print("Data saved as csv and parquet.")
-
-
+# print("Data saved as csv and parquet.")
